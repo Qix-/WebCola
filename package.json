@@ -24,7 +24,8 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsc --outDir dist -m esnext src/*.ts"
+    "build": "tsc --outDir dist -m esnext src/*.ts",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "typescript": "^4.2.4"
