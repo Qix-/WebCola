@@ -1,7 +1,7 @@
 {
   "name": "@qix/webcola",
   "version": "4.0.0",
-  "description": "Fork of WebCola, released with ESM support and updated codebase",
+  "description": "Fork of WebCola, without D3 and as ESM modules",
   "author": "Tim Dwyer",
   "license": "MIT",
   "homepage": "https://github.com/tgdwyer/WebCola",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tgdwyer/WebCola.git"
+    "url": "https://github.com/qix-/WebCola.git"
   },
   "keywords": [
     "Graph",
@@ -18,56 +18,15 @@
     "Constraints",
     "Optimization"
   ],
-  "main": "dist/cola.umd.development.js",
-  "module": "dist/cola.esm.js",
-  "unpkg": "dist/cola.umd.production.min.js",
-  "jsdelivr": "dist/cola.umd.production.min.js",
-  "types": "dist/cola.d.ts",
+  "module": "dist/cola.mjs",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": false,
   "scripts": {
-    "watch": "tsdx watch --noClean --name cola --format esm,umd",
-    "build": "tsdx build --name cola --format esm,umd",
-    "postbuild": "npm run typings",
-    "typings": "tsc -p tsconfig.dts.json && rollup -c rollup.dts.config.js",
-    "test": "tsdx test --passWithNoTests",
-    "test:watch": "tsdx test --passWithNoTests --watch",
-    "test:coverage": "tsdx test --passWithNoTests --coverage",
-    "lint": "tsdx lint src --ext .ts",
-    "docs": "typedoc",
-    "prepare": "npm run build",
-    "release": "release-it --disable-metrics --npm.skipChecks",
-    "release:pre": "release-it --disable-metrics --npm.skipChecks --preRelease=alpha --npm.tag=next",
-    "compile-examples": "tsc -p tsconfig.example.json",
-    "website": "npm run docs && cp dist/cola.umd.production.min.js website/cola.min.js && npm run compile-examples",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
-    "cy:junit": "cypress run --reporter junit --reporter-options 'mochaFile=junit-results/my-test-output.xml'"
+    "build": "tsc --outDir dist -m esnext src/*.ts"
   },
   "devDependencies": {
-    "@types/d3": "^4.5.0",
-    "@types/graphlib-dot": "^0.6.1",
-    "@types/jquery": "^3.3.38",
-    "acorn": "^7.2.0",
-    "cypress": "^4.6.0",
-    "d3": "^4.5.0",
-    "d3-dispatch": "^1.0.3",
-    "d3-drag": "^1.0.4",
-    "d3-timer": "^1.0.5",
-    "d3-zoom": "^1.1.4",
-    "release-it": "^13.6.0",
-    "rollup-plugin-dts": "^1.4.6",
-    "three": "^0.116.1",
-    "tsdx": "^0.13.2",
-    "typedoc": "^0.17.7",
-    "typescript": "^3.8.3"
-  },
-  "dependencies": {
-    "@types/d3-dispatch": "^1",
-    "@types/d3-drag": "^1",
-    "@types/d3-timer": "^1"
+    "typescript": "^4.2.4"
   }
 }
