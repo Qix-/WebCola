@@ -1,7 +1,7 @@
 {
-  "name": "webcola",
-  "version": "3.4.0",
-  "description": "WebCola =======",
+  "name": "@qix/webcola",
+  "version": "4.0.0",
+  "description": "Fork of WebCola, released with ESM support and updated codebase",
   "author": "Tim Dwyer",
   "license": "MIT",
   "homepage": "https://github.com/tgdwyer/WebCola",
@@ -51,6 +51,7 @@
     "@types/d3": "^4.5.0",
     "@types/graphlib-dot": "^0.6.1",
     "@types/jquery": "^3.3.38",
+    "acorn": "^7.2.0",
     "cypress": "^4.6.0",
     "d3": "^4.5.0",
     "d3-dispatch": "^1.0.3",
